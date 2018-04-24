@@ -1,23 +1,23 @@
 # LightWallet
 
-A minimal ethereum javascript wallet.
+A minimal happyuc javascript wallet.
 
 ## About
 
-LightWallet is a HD wallet that can store your private keys encrypted in the browser to allow you to run Ethereum dapps even if you're not running a local Ethereum node. It uses [BIP32][] and [BIP39][] to generate an HD tree of addresses from a randomly generated 12-word seed.
+LightWallet is a HD wallet that can store your private keys encrypted in the browser to allow you to run HappyUC dapps even if you're not running a local HappyUC node. It uses [BIP32][] and [BIP39][] to generate an HD tree of addresses from a randomly generated 12-word seed.
 
-LightWallet is primarily intended to be a signing provider for the [Hooked Web3 provider](https://github.com/ConsenSys/hooked-web3-provider) through the `keystore` module. This allows you to have full control over your private keys while still connecting to a remote node to relay signed transactions. Moreover, the `txutils` functions can be used to construct transactions when offline, for use in e.g. air-gapped coldwallet implementations.
+LightWallet is primarily intended to be a signing provider for the [Hooked Webu provider](https://github.com/ConsenSys/hooked-webu-provider) through the `keystore` module. This allows you to have full control over your private keys while still connecting to a remote node to relay signed transactions. Moreover, the `txutils` functions can be used to construct transactions when offline, for use in e.g. air-gapped coldwallet implementations.
 
 The default BIP32 HD derivation path has been `m/0'/0'/0'/i`, but any HD path can be chosen.
 
 ## Security
 
-Please note that LightWallet has not been through a comprehensive security review at this point. It is still experimental software, intended for small amounts of Ether to be used for interacting with smart contracts on the Ethereum blockchain. Do not rely on it to store larger amounts of Ether yet.
+Please note that LightWallet has not been through a comprehensive security review at this point. It is still experimental software, intended for small amounts of Huc to be used for interacting with smart contracts on the HappyUC blockchain. Do not rely on it to store larger amounts of Huc yet.
 
 ## Get Started
 
 ```
-npm install eth-lightwallet
+npm install huc-lightwallet
 ```
 
 The `eth-lightwallet` package contains `dist/lightwallet.min.js` that can be included in an HTML page:
@@ -32,7 +32,7 @@ The `eth-lightwallet` package contains `dist/lightwallet.min.js` that can be inc
 
 The file `lightwallet.min.js` exposes the global object `lightwallet` to the browser which has the two main modules `lightwallet.keystore` and `lightwallet.txutils`.
 
-Sample recommended usage with hooked web3 provider:
+Sample recommended usage with hooked webu provider:
 
 ```js
 // the seed is stored encrypted by a user-defined password
@@ -62,13 +62,13 @@ keyStore.createVault({
       callback(null, pw);
     };
 
-    // Now set ks as transaction_signer in the hooked web3 provider
-    // and you can start using web3 using the keys/addresses in ks!
+    // Now set ks as transaction_signer in the hooked webu provider
+    // and you can start using webu using the keys/addresses in ks!
   });
 });
 ```
 
-Sample old-style usage with hooked web3 provider (still works, but less secure because uses fixed salts).
+Sample old-style usage with hooked webu provider (still works, but less secure because uses fixed salts).
 
 ```js
 // generate a new BIP32 12-word seed
@@ -86,15 +86,15 @@ ks.generateNewAddress(pwDerivedKey, 5);
 var addr = ks.getAddresses();
 
 // Create a custom passwordProvider to prompt the user to enter their
-// password whenever the hooked web3 provider issues a sendTransaction
+// password whenever the hooked webu provider issues a sendTransaction
 // call.
 ks.passwordProvider = function (callback) {
   var pw = prompt("Please enter password", "Password");
   callback(null, pw);
 };
 
-// Now set ks as transaction_signer in the hooked web3 provider
-// and you can start using web3 using the keys/addresses in ks!
+// Now set ks as transaction_signer in the hooked webu provider
+// and you can start using webu using the keys/addresses in ks!
 });
 ```
 
@@ -219,7 +219,7 @@ Signed hash as signature object with v, r and s values.
 
 ### `signing.concatSig(signature)`
 
-Concatenates signature object to return signature as hex-string in the same format as `eth_sign` does.
+Concatenates signature object to return signature as hex-string in the same format as `huc_sign` does.
 
 #### Inputs
 
@@ -335,7 +335,7 @@ RLP-encoded hex string defining the transaction.
 
 See the file `example_usage.js` for usage of `keystore` and `txutils` in node.
 
-See the file `example_web.html` for an example of how to use the LightWallet keystore together with the Hooked Web3 Provider in the browser.
+See the file `example_web.html` for an example of how to use the LightWallet keystore together with the Hooked Webu Provider in the browser.
 
 ## Tests
 

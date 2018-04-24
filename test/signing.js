@@ -3,8 +3,8 @@ var keyStore = require('../lib/keystore')
 var upgrade = require('../lib/upgrade')
 var signing = require('../lib/signing')
 var fixtures = require('./fixtures/keystore')
-var Transaction = require('ethereumjs-tx')
-var util = require("ethereumjs-util")
+var Transaction = require('happyucjs-tx')
+var util = require("happyucjs-util")
 var nacl = require('tweetnacl')
 
 describe("Signing", function () {
@@ -21,9 +21,9 @@ describe("Signing", function () {
 
         ks.generateNewAddress(pw)
         var addr = ks.getAddresses()[0]
-        expect(addr).to.equal(fixtures.valid[0].ethjsTxParams.from)
+        expect(addr).to.equal(fixtures.valid[0].hucjsTxParams.from)
 
-        var tx = new Transaction(fixtures.valid[0].ethjsTxParams)
+        var tx = new Transaction(fixtures.valid[0].hucjsTxParams)
         var rawTx = tx.serialize().toString('hex')
         expect(rawTx).to.equal(fixtures.valid[0].rawUnsignedTx)
 
@@ -53,7 +53,7 @@ describe("Signing", function () {
 
           var address = keystore.getAddresses()[0]
 
-          var hexSeedETH = keystore.exportPrivateKey(address, pwDerivedKey)
+          var hexSeedHUC = keystore.exportPrivateKey(address, pwDerivedKey)
           var addr0 = keyStore._computeAddressFromPrivKey(hexSeedETH)
           expect(address).to.equal('0x' + addr0)
 
@@ -85,7 +85,7 @@ describe("Signing", function () {
 
           ks.generateNewAddress(pw);
           var addr = ks.getAddresses()[0];
-          expect(addr).to.equal(fixtures.valid[0].ethjsTxParams.from);
+          expect(addr).to.equal(fixtures.valid[0].hucjsTxParams.from);
 
           var msg = "this is a message";
 

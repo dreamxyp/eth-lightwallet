@@ -11,7 +11,7 @@ var addrprivkeyvector = require('./fixtures/addrprivkey100.json')
 // Test with 10000 private keys - takes about 40 seconds to run
 // var addrprivkeyvector = require('./fixtures/addrprivkey10000.json')
 
-var Transaction = require('ethereumjs-tx');
+var Transaction = require('happyucjs-tx');
 
 var createVaultProm = Promise.promisify(keyStore.createVault)
 
@@ -333,7 +333,7 @@ describe("Keystore", function() {
       });
   });
 
-  describe("hooked web3-provider", function() {
+  describe("hooked webu-provider", function() {
 
     it('implements hasAddress() correctly', function(done) {
 
@@ -388,7 +388,7 @@ describe("Keystore", function() {
           // Trivial passwordProvider
           ks.passwordProvider = function(callback) {callback(null, fixture.password)}
 
-          var txParams = fixture.web3TxParams
+          var txParams = fixture.webuTxParams
           ks.signTransaction(txParams, function (err, signedTx) {
             expect(signedTx.slice(2)).to.equal(fixture.rawSignedTx)
             done();

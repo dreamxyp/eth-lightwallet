@@ -27,7 +27,7 @@ keystore.generateNewAddress(pwDerivedKey)
 var sendingAddr = keystore.getAddresses()[0]
 
 
-// The transaction data follows the format of ethereumjs-tx
+// The transaction data follows the format of happyucjs-tx
 txOptions = {
     gasPrice: 10000000000000,
     gasLimit: 3000000,

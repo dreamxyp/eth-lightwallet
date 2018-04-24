@@ -1,5 +1,5 @@
-from ethereum import tester
-from ethereum import utils
+from happyuc import tester
+from happyuc import utils
 from bitcoin import ecdsa_sign, ecdsa_raw_sign, ecdsa_raw_recover, decode_sig
 import json
 
