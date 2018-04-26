@@ -1,0 +1,5 @@
+{
+  "presets": ["env", "es5"],
+  "compact": false,
+  "env":[]
+}

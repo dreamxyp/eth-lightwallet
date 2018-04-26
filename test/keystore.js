@@ -384,17 +384,21 @@ describe("Keystore", function() {
 
           ks.generateNewAddress(pwDerivedKey, 1)
           var addr = ks.getAddresses()[0]
-
+          // console.log(addr);
           // Trivial passwordProvider
           ks.passwordProvider = function(callback) {callback(null, fixture.password)}
 
           var txParams = fixture.webuTxParams
+          // console.log('txParams',txParams);
           ks.signTransaction(txParams, function (err, signedTx) {
+            // console.log('err'     ,err);
+            // console.log('signedTx',signedTx.slice(2));
             expect(signedTx.slice(2)).to.equal(fixture.rawSignedTx)
             done();
           });
         })
       });
+
     });
 
   });
@@ -405,7 +409,7 @@ describe("Keystore", function() {
       this.timeout(10000);
       var oldKS = require('./fixtures/lightwallet.json')
       var oldSerialized = JSON.stringify(oldKS);
-      upgrade.upgradeOldSerialized(oldSerialized, 'test', function(err, upgradedKeystore) {
+      upgrade(oldSerialized, 'test', function(err, upgradedKeystore) {
         var newKS = keyStore.deserialize(upgradedKeystore);
         expect(newKS.addresses).to.deep.equal(oldKS.addresses);
         done();
@@ -416,7 +420,9 @@ describe("Keystore", function() {
       this.timeout(10000);
       var oldKS = require('./fixtures/lightwalletv2.json')
       var oldSerialized = JSON.stringify(oldKS);
-      upgrade.upgradeOldSerialized(oldSerialized, 'PHveKjhQ&8dwWEdhu]q6', function(err, upgradedKeystore) {
+
+      // console.log(upgrade)
+      upgrade(oldSerialized, 'PHveKjhQ&8dwWEdhu]q6', function(err, upgradedKeystore) {
         var newKS = keyStore.deserialize(upgradedKeystore);
         expect(newKS.addresses).to.deep.equal(oldKS.ksData[newKS.hdPathString].addresses);
         done();

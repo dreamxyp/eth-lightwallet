@@ -36,7 +36,7 @@ describe("Signing", function () {
     it('Correctly handles a 31 byte key from bitcore', function(done) {
       var secretSeed = "erupt consider beyond twist bike enroll you salute weasel emerge divert hundred";
 
-      var hdPath = "m/44'/60'/0'" //as defined in SLIP44
+      var hdPath   = "m/44'/60'/0'" //as defined in SLIP44
       var password = 'test'
 
       var fixture = fixtures.valid[0]
@@ -51,10 +51,9 @@ describe("Signing", function () {
 
           keystore.generateNewAddress(pwDerivedKey, 1); //Generate a new address
 
-          var address = keystore.getAddresses()[0]
-
-          var hexSeedHUC = keystore.exportPrivateKey(address, pwDerivedKey)
-          var addr0 = keyStore._computeAddressFromPrivKey(hexSeedETH)
+          var address    = keystore.getAddresses()[0];
+          var hexSeedHUC = keystore.exportPrivateKey(address, pwDerivedKey);
+          var addr0 = keyStore._computeAddressFromPrivKey(hexSeedHUC);
           expect(address).to.equal('0x' + addr0)
 
           var tx = new Transaction({from: address,

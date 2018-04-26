@@ -8,8 +8,8 @@
     "url": "https://github.com/happyucjs/happyucjs-lightwallet.git"
   },
   "scripts": {
-    "build-js": "browserify index.js --s lightwallet -g [ babelify --presets [ es2015 react ] ] | uglifyjs -c > dist/lightwallet.min.js",
-    "build-dev": "browserify index.js -o dist/lightwallet.js --s lightwallet -g [ babelify --presets [ es2015 react ] ]",
+    "build-js": "browserify index.js -s lightwallet -g [ babelify --presets [ es2015 react ] ] | uglifyjs -c > dist/lightwallet.min.js",
+    "build-dev": "browserify index.js -o dist/lightwallet.js -s lightwallet -g [ babelify --presets [ es2015 react ] ]",
     "test": "./node_modules/.bin/mocha --reporter spec",
     "coverage": "istanbul cover _mocha -- -R spec; open coverage/lcov-report/index.html",
     "prepublish": "mkdir -p dist && npm run build-dev && npm run build-js"
@@ -20,12 +20,6 @@
     "transactions",
     "contracts",
     "wallet"
-  ],
-  "contributors": [
-    {
-      "name": "dreamxyp",
-      "email": "dreamxyp@gmail.com"
-    }
   ],
   "license": "MIT",
   "dependencies": {
@@ -39,20 +33,19 @@
     "rlp": "^2.0.0",
     "scrypt-async": "^1.2.0",
     "tweetnacl": "0.13.2",
-    "webu": "0.20.2"
+    "webu": "/Users/dreamxyp/Transcend/happyuc-project/webu.js/"
   },
   "devDependencies": {
     "async": "^1.4.2",
-    "babel-preset-es2015": "^6.13.2",
-    "babel-preset-react": "^6.11.1",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-plugin-transform-es3-member-expression-literals": "^6.22.0",
     "babel-plugin-transform-es3-property-literals": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.11.1",
     "babelify": "^7.3.0",
     "bluebird": "^3.3.1",
     "browserify": "^13.1.0",
     "chai": "^3.0.0",
-    "hooked-webu-provider": "christianlundkvist/hooked-webu-provider#updates_webu_14",
     "istanbul": "^0.3.15",
     "mocha": "^2.2.5",
     "uglify-js": "^2.7.2"
