@@ -1,5 +1,11 @@
 {
-  "presets": ["env", "es5"],
+  // "presets": ["es2015"],
   "compact": false,
-  "env":[]
+  "env":[],
+  "presets": [
+//    "latest",
+//    "react",
+//    "stage-2"
+  ],
+  "plugins": []
 }

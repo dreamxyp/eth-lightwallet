@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build-js": "browserify index.js -s lightwallet -g [ babelify --presets [ es2015 react ] ] | uglifyjs -c > dist/lightwallet.min.js",
-    "build-dev": "browserify index.js -o dist/lightwallet.js -s lightwallet -g [ babelify --presets [ es2015 react ] ]",
+    "build-dev": "browserify index.js -o dist/lightwallet.js  --presets [ es2015  ] ",
     "test": "./node_modules/.bin/mocha --reporter spec",
     "coverage": "istanbul cover _mocha -- -R spec; open coverage/lcov-report/index.html",
     "prepublish": "mkdir -p dist && npm run build-dev && npm run build-js"
@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "async": "^1.4.2",
+    "babel-cli": "^6.0.0",
     "babel-plugin-transform-es3-member-expression-literals": "^6.22.0",
     "babel-plugin-transform-es3-property-literals": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
