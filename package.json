@@ -12,7 +12,8 @@
     "build-dev": "browserify index.js -o dist/lightwallet.js  --presets [ es2015  ] ",
     "test": "./node_modules/.bin/mocha --reporter spec",
     "coverage": "istanbul cover _mocha -- -R spec; open coverage/lcov-report/index.html",
-    "prepublish": "mkdir -p dist && npm run build-dev && npm run build-js"
+    "prepublish2": "mkdir -p dist && npm run build-dev && npm run build-js",
+    "prepublish": "mkdir -p dist"
   },
   "keywords": [
     "happyuc",
