@@ -28,12 +28,15 @@
     "buffer": "^4.9.0",
     "crypto-js": "^3.1.5",
     "elliptic": "^3.1.0",
-    "happyucjs-tx": "/Users/dreamxyp/Transcend/happyuc-js/tx/",
-    "happyucjs-util": "/Users/dreamxyp/Transcend/happyuc-js/util/",
+    // "happyucjs-tx": "/Users/dreamxyp/Transcend/happyuc-js/tx/",
+    // "happyucjs-util": "/Users/dreamxyp/Transcend/happyuc-js/util/",
+    "happyucjs-tx": "https://github.com/happyucjs/happyucjs-tx.git",
+    "happyucjs-util": "https://github.com/happyucjs/happyucjs-util.git",
     "rlp": "^2.0.0",
     "scrypt-async": "^1.2.0",
     "tweetnacl": "0.13.2",
-    "webu": "/Users/dreamxyp/Transcend/happyuc-project/webu.js/"
+    // "webu": "/Users/dreamxyp/Transcend/happyuc-project/webu.js/"
+    "webu": "https://github.com/happyuc-project/webu.js.git",
   },
   "devDependencies": {
     "async": "^1.4.2",
