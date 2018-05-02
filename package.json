@@ -33,7 +33,7 @@
     "rlp": "^2.0.0",
     "scrypt-async": "^1.2.0",
     "tweetnacl": "0.13.2",
-    "webu": "^1.0.10",
+    "webu": "^1.0.9"
   },
   "devDependencies": {
     "async": "^1.4.2",
