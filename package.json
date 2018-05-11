@@ -29,7 +29,7 @@
     "crypto-js": "^3.1.5",
     "elliptic": "^3.1.0",
     "happyucjs-tx": "^1.0.1",
-    "happyucjs-util": "^1.0.3",
+    "happyucjs-util": "^1.0.6",
     "rlp": "^2.0.0",
     "scrypt-async": "^1.2.0",
     "tweetnacl": "0.13.2",
